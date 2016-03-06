@@ -2,6 +2,11 @@ var React = require('react');
 var transparentBg = require('../styles').transparentBg;
 
 var PromptContainer = React.createClass({
+  // video5-min13. to set the context to conditionally route in onSubmitUser
+  contextTypes: {
+    router: React.PropTypes.object.isRequired
+  },
+
   getInitialState: function() {
     return {
       username: ''
@@ -19,11 +24,16 @@ var PromptContainer = React.createClass({
       username: ''
     });
     if (this.props.routeParams.playerOne) {
-      // go to battle
+      this.context.router.push({
+        pathname: '/battle',
+        query: {
+          playerOne: this.props.routeParams.playerOne,
+          playerTwo: this.state.username
+        }
+      })
     } else {
-      // to to player two
+      this.context.router.push('/playerTwo/' + this.state.username)
     }
-
   },
 
   render: function() {
