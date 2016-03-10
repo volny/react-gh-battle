@@ -28,7 +28,7 @@ function Tie (props) {
 
 function Results (props) {
   if (props.isLoading === true) {
-    return <Loading text='Almost done' speed={300} />
+    return <Loading text='Battling' speed={300} />
   }
 
   if (props.scores[0] === props.scores[1]) {
