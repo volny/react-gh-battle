@@ -49,8 +49,8 @@ var Loading = React.createClass({
       }
     }.bind(this), this.props.speed)
   },
-  componentWillUnmout: function() {
-    clearInterval(this.interval);
+  componentWillUnmount: function() {
+    window.clearInterval(this.interval);
   },
   render: function() {
     return (
