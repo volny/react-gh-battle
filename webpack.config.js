@@ -16,7 +16,7 @@ module.exports = {
   module: {
     loaders: [
       //{test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader'},
-      {test: /\.js$/, include: __dirname + '/app', loader: 'babel-loader'},
+      {test: /\.js$/, include: __dirname + '/app', loader: 'babel-loader?presets[]=react' },
       {test: /\.css$/, loader: 'style-loader!css-loader'}
 
     ]
