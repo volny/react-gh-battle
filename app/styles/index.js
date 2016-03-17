@@ -1,10 +1,7 @@
-const styles = {
-  transparentBg: {
-    background: 'transparent'
-  },
-  space: {
-    marginTop: '15px'
-  }
+export const transparentBg = {
+  background: 'transparent'
 }
 
-export default styles
+export const space = {
+  marginTop: '25px'
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import ConfirmBattle from '../components/ConfirmBattle'
-import githubHelpers from '../utils/githubHelpers'
+import { getPlayersInfo } from '../utils/githubHelpers'
 
 export default React.createClass({
   contextTypes: {
@@ -14,8 +14,8 @@ export default React.createClass({
     }
   },
   componentDidMount: function() {
-    const query = this.props.location.query
-    githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
+    const { query } = this.props.location
+    getPlayersInfo([query.playerOne, query.playerTwo])
     .then(function (players) {
       this.setState({
         isLoading: false,

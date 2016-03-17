@@ -7,7 +7,7 @@ import PromptContainer from '../containers/PromptContainer'
 import ConfirmBattleContainer from '../containers/ConfirmBattleContainer'
 import ResultsContainer from '../containers/ResultsContainer'
 
-const routes = (
+export default (
   <Router history={hashHistory}>
     <Route path='/' component={Main}>
       <IndexRoute component={Home} />
@@ -18,5 +18,3 @@ const routes = (
     </Route>
   </Router>
 )
-
-export default routes

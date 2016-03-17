@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-import styles from '../styles'
+import { transparentBg } from '../styles'
 
 Prompt.propTypes = {
     header: PropTypes.string.isRequired,
@@ -9,18 +9,18 @@ Prompt.propTypes = {
     username: PropTypes.string.isRequired
 };
 
-export default function Prompt (props) {
+export default function Prompt ({header, onSubmitUser, onUpdateUser, username}) {
   return (
-    <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={styles.transparentBg}>
-      <h1>{props.header}</h1>
+    <div className="jumbotron col-sm-6 col-sm-offset-3 text-center" style={transparentBg}>
+      <h1>{header}</h1>
       <div className="col-sm-12">
-        <form onSubmit={props.onSubmitUser}>
+        <form onSubmit={onSubmitUser}>
           <div className="form-group">
             <input
               className="form-control"
               placeholder="Github Username"
-              onChange={props.onUpdateUser}
-              value={props.username}
+              onChange={onUpdateUser}
+              value={username}
               type="text" />
           </div>
           <div className="form-group col-sm-4 col-sm-offset-4">

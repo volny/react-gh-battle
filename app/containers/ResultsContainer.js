@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Results from '../components/Results'
-import githubHelpers from '../utils/githubHelpers'
+import { battle } from '../utils/githubHelpers'
 
 export default React.createClass({
   getInitialState: function() {
@@ -11,7 +11,7 @@ export default React.createClass({
     }
   },
   componentDidMount: function() {
-    githubHelpers.battle(this.props.location.state.playersInfo)
+    battle(this.props.location.state.playersInfo)
     .then(function(scores) {
       this.setState({
         scores: scores,
