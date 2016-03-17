@@ -1,13 +1,19 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
-var styles = require('../styles');
-var UserDetails = require('./UserDetails');
-var UserDetailsWrapper = require('./UserDetailsWrapper');
-var Link = require('react-router').Link;
-var MainContainer = require('../containers/MainContainer');
-var Loading = require('./Loading');
+import React, { PropTypes } from 'react'
+import { Link } from 'react-router'
 
-function StartOver (props) {
+import styles from '../styles'
+import MainContainer from '../containers/MainContainer'
+import UserDetails from './UserDetails'
+import UserDetailsWrapper from './UserDetailsWrapper'
+import Loading from './Loading'
+
+Results.PropTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  playersInfo: PropTypes.array.isRequired,
+  scores: PropTypes.array.isRequired
+}
+
+function StartOver () {
   return (
     <div className='col-sm-12' style={styles.space}>
       <Link to='/PlayerOne'>
@@ -17,7 +23,7 @@ function StartOver (props) {
   )
 }
 
-function Tie (props) {
+function Tie () {
   return (
     <MainContainer>
       <h1>It's a tie</h1>
@@ -26,7 +32,7 @@ function Tie (props) {
   )
 }
 
-function Results (props) {
+export default function Results (props) {
   if (props.isLoading === true) {
     return <Loading text='Battling' speed={300} />
   }
@@ -37,8 +43,8 @@ function Results (props) {
     )
   }
 
-  var winningIndex = props.scores[0] > props.scores[1] ? 0 : 1;
-  var losingIndex = winningIndex === 0 ? 1 : 0;
+  const winningIndex = props.scores[0] > props.scores[1] ? 0 : 1
+  const losingIndex = winningIndex === 0 ? 1 : 0
 
   return (
     <MainContainer>
@@ -55,12 +61,3 @@ function Results (props) {
     </MainContainer>
   )
 }
-
-Results.PropTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  playersInfo: PropTypes.array.isRequired,
-  scores: PropTypes.array.isRequired
-}
-
-module.exports = Results;
-

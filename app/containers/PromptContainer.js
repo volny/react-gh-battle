@@ -1,8 +1,8 @@
-var React = require('react');
-var Prompt = require('../components/Prompt');
+import React from 'react'
 
-var PromptContainer = React.createClass({
-  // video5-min13. to set the context to conditionally route in onSubmitUser
+import Prompt from '../components/Prompt'
+
+export default React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
@@ -18,11 +18,11 @@ var PromptContainer = React.createClass({
     })
   },
   handleSubmitUser: function(e) {
-    e.preventDefault();
-    var username = this.state.username;
+    e.preventDefault()
+    const username = this.state.username
     this.setState({
       username: ''
-    });
+    })
     if (this.props.routeParams.playerOne) {
       this.context.router.push({
         pathname: '/battle',
@@ -45,7 +45,4 @@ var PromptContainer = React.createClass({
         username={this.state.username}/>
     )
   }
-});
-
-module.exports = PromptContainer;
-
+})

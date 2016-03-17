@@ -1,8 +1,9 @@
-var React = require('react');
-var ConfirmBattle = require('../components/ConfirmBattle');
-var GithubHelpers = require('../utils/githubHelpers');
+import React from 'react'
 
-var ConfirmBattleContainer = React.createClass({
+import ConfirmBattle from '../components/ConfirmBattle'
+import githubHelpers from '../utils/githubHelpers'
+
+export default React.createClass({
   contextTypes: {
     router: React.PropTypes.object.isRequired
   },
@@ -13,12 +14,9 @@ var ConfirmBattleContainer = React.createClass({
     }
   },
   componentDidMount: function() {
-    // see PromptContainer.js / handleSubmitUser
-    var query = this.props.location.query;
-    // fetch info from Github then update state
-    GithubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
+    const query = this.props.location.query
+    githubHelpers.getPlayersInfo([query.playerOne, query.playerTwo])
     .then(function (players) {
-      //console.log('PLAYERS', players);
       this.setState({
         isLoading: false,
         playersInfo: [players[0], players[1]]
@@ -29,7 +27,6 @@ var ConfirmBattleContainer = React.createClass({
   handleInitiateBattle: function() {
     this.context.router.push({
       pathname: '/results',
-      // `state` allows us to push playersInfo through to our new results route
       state: {
         playersInfo: this.state.playersInfo
       }
@@ -42,9 +39,6 @@ var ConfirmBattleContainer = React.createClass({
         isLoading={this.state.isLoading}
         onInitiateBattle={this.handleInitiateBattle}
         playersInfo={this.state.playersInfo} />
-    );
+    )
   }
-});
-
-module.exports = ConfirmBattleContainer;
-
+})

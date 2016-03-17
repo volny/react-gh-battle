@@ -1,9 +1,9 @@
-var React = require('react');
-var ReactCSSTransitionGroup = require('react-addons-css-transition-group');
+import React from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-require('../main.css');
+import '../main.css'
 
-var Main = React.createClass({
+export default React.createClass({
   render: function() {
     return (
       <div className='mainContainer'>
@@ -17,6 +17,3 @@ var Main = React.createClass({
     )
   }
 })
-
-module.exports = Main;
-

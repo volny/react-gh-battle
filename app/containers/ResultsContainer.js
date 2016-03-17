@@ -1,8 +1,9 @@
-var React = require('react');
-var Results = require('../components/Results');
-var githubHelpers = require('../utils/githubHelpers');
+import React from 'react'
 
-var ResultsContainer = React.createClass({
+import Results from '../components/Results'
+import githubHelpers from '../utils/githubHelpers'
+
+export default React.createClass({
   getInitialState: function() {
     return {
       isLoading: true,
@@ -27,6 +28,3 @@ var ResultsContainer = React.createClass({
     )
   }
 })
-
-module.exports = ResultsContainer;
-
