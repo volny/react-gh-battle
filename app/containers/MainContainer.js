@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 import { transparentBg } from '../styles'
 
-export default function (props) {
-  return (
-    <div className="jumbotron col-sm-12 text-center" style={transparentBg}>
-      {props.children}
-    </div>
-  )
+export default class MainContainer extends Component {
+  render () {
+    return (
+      <div className="jumbotron col-sm-12 text-center" style={transparentBg}>
+        {this.props.children}
+      </div>
+    )
+  }
 }
