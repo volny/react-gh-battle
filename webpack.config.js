@@ -7,6 +7,7 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 
 module.exports = {
   entry: [
+    'babel-polyfill',
     './app/index.js'
   ],
   output: {
@@ -20,7 +21,7 @@ module.exports = {
         include: __dirname + '/app',
         loader: 'babel-loader',
         query: {
-          presets: [ 'react', 'es2015' ]
+          presets: ['es2015', 'react', 'stage-0']
         }
       },
       {
