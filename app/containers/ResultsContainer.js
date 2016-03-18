@@ -10,14 +10,25 @@ export default React.createClass({
       scores: []
     }
   },
-  componentDidMount () {
-    battle(this.props.location.state.playersInfo)
-    .then((scores) => {
+  //componentDidMount () {
+  //  battle(this.props.location.state.playersInfo)
+  //  .then((scores) => {
+  //    this.setState({
+  //      scores: scores,
+  //      isLoading: false
+  //    })
+  //  })
+  //},
+  async componentDidMount () {
+    try {
+      const scores = await battle(this.props.location.state.playersInfo)
       this.setState({
-        scores: scores,
+        scores,
         isLoading: false
       })
-    })
+    } catch (err) {
+      console.warn('Error in ResultsContainer', err)
+    }
   },
   render () {
     return (
