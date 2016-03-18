@@ -4,7 +4,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import '../main.css'
 
 export default React.createClass({
-  render: function() {
+  render () {
     return (
       <div className='mainContainer'>
         <ReactCSSTransitionGroup
