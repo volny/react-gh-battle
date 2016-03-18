@@ -3,7 +3,10 @@ import React, { Component } from 'react'
 import ConfirmBattle from '../components/ConfirmBattle'
 import { getPlayersInfo } from '../utils/githubHelpers'
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> development
 export default class ConfirmBattleContainer extends Component {
   constructor () {
     super()
